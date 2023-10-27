@@ -21,6 +21,6 @@ app.add_middleware(
 async def read_item(item_id: int):
     # Veriyi sorgu yaparak al
     item_data = df[df["id"] == item_id]
-    if item_data:
-        return item_data
+    if not item_data.empty:
+        return item_data.to_dict(orient="records")
     return {"message": "Ürün bulunamadı"}
