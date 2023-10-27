@@ -19,4 +19,4 @@ app.add_middleware(
 
 @app.get("/items/{item_id}")
 async def read_item(item_id):
-    return {df.name, df.price, df.url, df.image}
+    return {df.name}
