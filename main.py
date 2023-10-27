@@ -18,7 +18,7 @@ app.add_middleware(
 )
 
 @app.get("/items/{item_id}")
-async def read_item(item_id: int):
+async def read_item(item_id: str):
     # Veriyi sorgu yaparak al
     item_data = df[df["id"] == item_id]
     if not item_data.empty:
