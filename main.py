@@ -1,14 +1,12 @@
-from typing import Optional
-
 from fastapi import FastAPI
+import pandas as pd
+
+url = 'https://docs.google.com/spreadsheets/d/1Tq5KEhwBO9FSlcftABHNeFKmSBtVP2cMznapsgqrYzI/gviz/tq?tqx=out:csv&sheet=RH_C'
+df = pd.read_csv(url)
 
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
 @app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
+async def read_item(item_id):
+    return {"item_id": df.labels}
