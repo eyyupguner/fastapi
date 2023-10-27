@@ -9,4 +9,4 @@ app = FastAPI()
 
 @app.get("/items/{item_id}")
 async def read_item(item_id):
-    return {"itedd": df.labels}
+    return {"item": df.labels}
